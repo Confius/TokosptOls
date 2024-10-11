@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Olsport_id</title>
+
+    <!-- Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap"
+
+      rel="stylesheet"
+
+    />
+
+    <!-- feathers icons -->
+
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- Direktori css -->
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Framework Alpine JS -->
+
+    <script
+
+      defer
+
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+
+    ></script>
+
+    
+
+        <!-- Direktori AlpineJS -->
+
+    <script src="src/app.js" async></script>
+
+    
+
+  </head>
+
+  <body>
+
+    <!-- Navbar Start -->
+
+    <nav class="Navbar" x-data="products">
+
+      <a href="#" class="Navbar-logo">Olsport_<span>id</span></a>
+
+      <div class="navbar-nav">
+
+        <a href="#home">Home</a>
+
+        <a href="#about">About</a>
+
+        <a href="#menu">Menu</a>
+
+        <a href="#products">Products</a>
+
+        <a href="#contact">Contact</a>
+
+      </div>
+
+      <div class="navbar-mark">
+
+        <a href="#" id="Search-button"> <i data-feather="search"></i></a>
+
+        <a href="#" id="Shopping-cart-button"
+
+          ><i data-feather="shopping-cart"></i
+
+          ><span
+
+            class="quantity-badge"
+
+            x-show="$store.cart.quantity"
+
+            x-text="$store.cart.quantity"
+
+          ></span
+
+        ></a>
+
+        <a href="#" id="Sidebar"> <i data-feather="menu"></i></a>
+
+      </div>
+
+      <!-- Search Button Start -->
+
+      <div class="search-form">
+
+        <input
+
+          type="search"
+
+          id="search-box"
+
+          x-model="search"
+
+          placeholder="search here.."
+
+        />
+
+        <label for="search-box"><i data-feather="search"></i></label>
+
+      </div>
+
+      <!-- Search Button End -->
+
+      <!-- Shopping Cart Start -->
+
+      <div class="shopping-cart">
+
+        <template x-for="(item, index) in $store.cart.items" x-keys="index">
+
+          <div class="cart-items">
+
+            <img :src="`img/products/${item.img}`" :alt="item.name" />
+
+            <div class="item-detail">
+
+              <h3 x-text="item.name"></h3>
+
+              <div class="item-price">
+
+                <span x-text="rupiah(item.price)"></span> &times;
+
+                <button id="remove" @click="$store.cart.remove(item.id)">
+
+                  &minus;
+
+                </button>
+
+                <span x-text="item.quantity"></span>
+
+                <button id="add" @click="$store.cart.add(item)">&plus;</button>
+
+                &equals;
+
+                <span id="sub-total" x-text="rupiah(item.total)"></span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </template>
+
+        <h4 x-show="!$store.cart.items.length">Your cart is empty</h4>
+
+        <h4 x-show="$store.cart.items.length">
+
+          Total: <span x-text="rupiah($store.cart.total)"></span>
+
+        </h4>
+
+        <div class="form-checkout" x-show="$store.cart.items.length">
+
+          <form action="" id="checkoutForm">
+
+            <input
+
+              type="hidden"
+
+              name="items"
+
+              x-model="JSON.stringify($store.cart.items)"
+
+            />
+
+            <input type="hidden" name="total" x-model="$store.cart.total" />
+
+            <h5>Detail Pelanggan</h5>
+
+            <label for="name">
+
+              <span>Name</span>
+
+              <input type="text" id="name" name="name" />
+
+            </label>
+
+            <label for="email">
+
+              <span>Alamat</span>
+
+              <input type="text" id="alamat" name="alamat" />
+
+            </label>
+
+            <label for="phone">
+
+              <span>Phone</span>
+
+              <input type="number" id="phone" name="phone" autocomplete="off" />
+
+            </label>
+
+            <label for="order">
+
+              <span>Order</span>
+
+              <select name="order" id="order">
+
+                <option value="Delivery">Deliver</option>
+
+                <option value="Take Away"></option>
+
+              </select>
+
+            </label>
+
+            <button
+
+              class="checkout-button disabled"
+
+              type="submit"
+
+              id="checkout-button"
+
+              value="checkout"
+
+            >
+
+              Checkout
+
+            </button>
+
+          </form>
+
+        </div>
+
+      </div>
+
+      <!-- Shopping Cart End -->
+
+    </nav>
+
+    <!-- Navbar End -->
+
+    <!-- Hero Section Start -->
+
+    <section class="hero" id="home">
+
+      <main class="content">
+
+        <h3>
+
+          Temukan sepatu
+
+          <span> impian anda. </span>
+
+        </h3>
+
+        <p>
+
+          Kohi is a coffee destination break that combines the best taste of
+
+          coffee with a stunning blend of Japanese aesthetics.
+
+        </p>
+
+        <!-- <a href="#" class="cta">Pesan Sekarang</a> -->
+
+      </main>
+
+    </section>
+
+    <!-- Hero Section End -->
+
+    <!-- About Section Ready -->
+
+    <section id="about" class="about">
+
+      <h2>About<span> Us</span></h2>
+
+      <div class="row">
+
+        <div class="about-img">
+
+          <img
+
+            src="image1.jpg"
+
+            alt="About Us"
+
+            width="400"
+
+            height="300"
+
+          />
+
+        </div>
+
+        <div class="content">
+
+          <h3>Kenapa harga sepatu murah?</h3>
+
+          <p>
+
+           kami sedang mengadakan diskon besar-besaran semua harga sepatu yang kami jual serba 50k buruan ceckout sebelum kehabisan stok .
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- About Section End-->
+
+    <!-- Menu Section Start -->
+
+    <section id="menu" class="menu">
+
+      <h2>Tersedia semua<span> Merk</span></h2>
+
+      <p>
+
+        Enjoy our superior products with exclusive flavors and served for
+
+        Exclusive Connoisseurs.
+
+      </p>
+
+      <div class="row">
+
+        <div class="menu-card">
+
+          <img
+
+            src="menu\nike.jpg"
+
+            alt="latte"
+
+            class="menu-card-image"
+
+            width="150"
+
+            height="150"
+
+          />
+
+          <h3 class="menu-card-title">-NIKE-</h3>
+
+          <p class="menu-card-price"></p>
+
+        </div>
+
+        <div class="menu-card">
+
+          <img
+
+            src="menu/adidas.jpg"
+
+            alt="latte"
+
+            class="menu-card-image"
+
+            width="150"
+
+            height="150"
+
+          />
+
+          <h3 class="menu-card-title">-ADIDAS-</h3>
+
+          <p class="menu-card-price"></p>
+
+        </div>
+
+        <div class="menu-card">
+
+          <img
+
+            src="menu\puma.jpg"
+
+            alt="latte"
+
+            class="menu-card-image"
+
+            width="150"
+
+            height="150"
+
+          />
+
+          <h3 class="menu-card-title">-PUMA-</h3>
+
+          <p class="menu-card-price"></p>
+
+        </div>
+
+        <div class="menu-card">
+
+          <img
+
+            src="menu\specs.jpg"
+
+            alt="latte"
+
+            class="menu-card-image"
+
+            width="150"
+
+            height="150"
+
+          />
+
+          <h3 class="menu-card-title">-Specs-</h3>
+
+          <p class="menu-card-price"></p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Menu Section End -->
+
+    <!-- Product Section Ready -->
+
+    <section class="products" id="products" x-data="products">
+
+      <h2><span>Our</span> Products</h2>
+
+      <p>
+
+        Fill the Day Remotely, with just a Pick, Click and Your Order Launch
+
+        Home Immediately. or Pick Up Your Day Fillers at Our Place.
+
+      </p>
+
+      <!-- <input type="search" x-model="search" /> -->
+
+      <div class="row">
+
+        <template x-for="(item, index) in items" x-key="index">
+
+          <div class="product-card">
+
+            <div class="product-icons">
+
+              <a href="#" @click.prevent="$store.cart.add(item)">
+
+                <svg
+
+                  width="24"
+
+                  height="24"
+
+                  fill="none"
+
+                  stroke="currentColor"
+
+                  stroke-width="2"
+
+                  stroke-linecap="round"
+
+                  stroke-linejoin="round"
+
+                >
+
+                  <use href="img/feather-sprite.svg#shopping-cart" />
+
+                </svg>
+
+              </a>
+
+              <a href="#" class="item-detail-button" @click.prevent="mata()">
+
+                <svg
+
+                  width="24"
+
+                  height="24"
+
+                  fill="none"
+
+                  stroke="currentColor"
+
+                  stroke-width="2"
+
+                  stroke-linecap="round"
+
+                  stroke-linejoin="round"
+
+                >
+
+                  <use href="img/feather-sprite.svg#eye" />
+
+                </svg>
+
+              </a>
+
+            </div>
+
+            <div class="product-images">
+
+              <img :src="`img/products/${item.img}`" :alt="item.name" />
+
+            </div>
+
+            <div class="product-content">
+
+              <h3 x-text="item.name"></h3>
+
+              <div class="product-stars">
+
+                <svg
+
+                  width="24"
+
+                  height="24"
+
+                  fill="#b6895b"
+
+                  stroke="#b6895b"
+
+                  stroke-width="2"
+
+                  stroke-linecap="round"
+
+                  stroke-linejoin="round"
+
+                >
+
+                  <use href="img/feather-sprite.svg#star" />
+
+                </svg>
+
+                <svg
+
+                  width="24"
+
+                  height="24"
+
+                  fill="#b6895b"
+
+                  stroke="#b6895b"
+
+                  stroke-width="2"
+
+                  stroke-linecap="round"
+
+                  stroke-linejoin="round"
+
+                >
+
+                  <use href="img/feather-sprite.svg#star" />
+
+                </svg>
+
+                <svg
+
+                  width="24"
+
+                  height="24"
+
+                  fill="#b6895b"
+
+                  stroke="#b6895b"
+
+                  stroke-width="2"
+
+                  stroke-linecap="round"
+
+                  stroke-linejoin="round"
+
+                >
+
+                  <use href="img/feather-sprite.svg#star" />
+
+                </svg>
+
+                <svg
+
+                  width="24"
+
+                  height="24"
+
+                  fill="#b6895b"
+
+                  stroke="#b6895b"
+
+                  stroke-width="2"
+
+                  stroke-linecap="round"
+
+                  stroke-linejoin="round"
+
+                >
+
+                  <use href="img/feather-sprite.svg#star" />
+
+                </svg>
+
+                <svg
+
+                  width="24"
+
+                  height="24"
+
+                  fill="#b6895b"
+
+                  stroke="#b6895b"
+
+                  stroke-width="2"
+
+                  stroke-linecap="round"
+
+                  stroke-linejoin="round"
+
+                >
+
+                  <use href="img/feather-sprite.svg#star" />
+
+                </svg>
+
+              </div>
+
+              <!-- <div class="product-ingredients">
+
+                <p>Kadar Gula: 9.02%</p>
+
+              </div> -->
+
+              <div class="product-price">
+
+                <span x-text="rupiah(item.price)"></span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </template>
+
+      </div>
+
+    </section>
+
+    <!-- Product Section End -->
+
+    <!-- Contact Section Ready-->
+
+    <section id="contact" class="contact">
+
+      <h2>Contact<span> Us</span></h2>
+
+      <p>Contact Us For Business Inquires</p>
+
+      <div class="row">
+
+        <iframe
+
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2020608.5958903893!2d113.75260045228892!3d-8.450545605151165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd141d3e8100fa1%3A0x24910fb14b24e690!2sBali!5e0!3m2!1sid!2sid!4v17283926700"
+
+          width="300"
+
+          height="450"
+
+          style="border: 0"
+
+          allowfullscreen=""
+
+          loading="lazy"
+
+          referrerpolicy="no-referrer-when-downgrade"
+
+        ></iframe>
+
+        <!-- <form action=""> -->
+
+        <div class="input-group">
+
+          <i data-feather="user"></i>
+
+          <input type="text" id="fullName2" placeholder="name" />
+
+        </div>
+
+        <div class="input-group">
+
+          <i data-feather="mail"></i>
+
+          <input type="text" id="email_id2" placeholder="email" />
+
+        </div>
+
+        <div class="input-group">
+
+          <i data-feather="message-square"></i>
+
+          <input type="text" id="message2" placeholder="message" />
+
+        </div>
+
+        <button type="submit" class="btn" onclick="SendMail2()">Send</button>
+
+        <!-- </form> -->
+
+      </div>
+
+    </section>
+
+    <!-- Contact Section End-->
+
+    <!-- Footer Section Start -->
+
+    <footer>
+
+      <div class="socials">
+
+        <a href="https://www.instagram.com/olsport_id?igsh=MTBsaDhuMXAyMjZ3cg=="
+
+          ><i data-feather="instagram"></i
+
+        ></a>
+
+        <a href=""
+
+          ><i data-feather="facebook"></i
+
+        ></a>
+
+        <a href="https://www.linkedin.com/in/reihan-darussalam-182827237/"
+
+          ><i data-feather="linkedin"></i
+
+        ></a>
+
+      </div>
+
+      <div class="links">
+
+        <a href="#home">Home</a>
+
+        <a href="#about">About</a>
+
+        <a href="#menu">Menu</a>
+
+        <a href="#contact">Kontak</a>
+
+      </div>
+
+      <div class="credit">
+
+        <p>
+
+          Developed by <a href="https://github.com">Olsport</a>. |
+
+          &copy; 2020
+
+        </p>
+
+      </div>
+
+    </footer>
+
+    <!-- Footer Section End -->
+
+    <!-- Modal Box Item Detail Start -->
+
+    <div class="modal" id="item-detail" x-data="products">
+
+      <template x-for="(item, index) in items" x-key="index">
+
+        <div class="modal-container">
+
+          <a href="#" class="close-icon"><i data-feather="x"></i></a>
+
+          <div class="modal-content">
+
+            <img :src="`img/products/${item.img}`" :alt="item.name" />
+
+            <div class="product-content">
+
+              <h3 x-text="item.name"></h3>
+
+              <p x-text="item.detail"></p>
+
+              <div class="product-stars">
+
+                <svg
+
+                  width="24"
+
+                  height="24"
+
+                  fill="#b6895b"
+
+                  stroke="#b6895b"
+
+                  stroke-width="2"
+
+                  stroke-linecap="round"
+
+                  stroke-linejoin="round"
+
+                >
+
+                  <use href="img/feather-sprite.svg#star" />
+
+                </svg>
+
+                <svg
+
+                  width="24"
+
+                  height="24"
+
+                  fill="#b6895b"
+
+                  stroke="#b6895b"
+
+                  stroke-width="2"
+
+                  stroke-linecap="round"
+
+                  stroke-linejoin="round"
+
+                >
+
+                  <use href="img/feather-sprite.svg#star" />
+
+                </svg>
+
+                <svg
+
+                  width="24"
+
+                  height="24"
+
+                  fill="#b6895b"
+
+                  stroke="#b6895b"
+
+                  stroke-width="2"
+
+                  stroke-linecap="round"
+
+                  stroke-linejoin="round"
+
+                >
+
+                  <use href="img/feather-sprite.svg#star" />
+
+                </svg>
+
+                <svg
+
+                  width="24"
+
+                  height="24"
+
+                  fill="#b6895b"
+
+                  stroke="#b6895b"
+
+                  stroke-width="2"
+
+                  stroke-linecap="round"
+
+                  stroke-linejoin="round"
+
+                >
+
+                  <use href="img/feather-sprite.svg#star" />
+
+                </svg>
+
+                <svg
+
+                  width="24"
+
+                  height="24"
+
+                  fill="#b6895b"
+
+                  stroke="#b6895b"
+
+                  stroke-width="2"
+
+                  stroke-linecap="round"
+
+                  stroke-linejoin="round"
+
+                >
+
+                  <use href="img/feather-sprite.svg#star" />
+
+                </svg>
+
+              </div>
+
+              <div class="modal-price">
+
+                <span x-text="rupiah(item.price)"></span>
+
+              </div>
+
+              <a href="#" @click.prevent="$store.cart.add(item)"
+
+                ><i data-feather="shopping-cart"></i>
+
+                <span
+
+                  ><svg
+
+                    width="20"
+
+                    height="20"
+
+                    fill="none"
+
+                    stroke="#fff"
+
+                    stroke-width="2"
+
+                    stroke-linecap="round"
+
+                    stroke-linejoin="round"
+
+                  >
+
+                    <use href="img/feather-sprite.svg#shopping-cart" />
+
+                  </svg>
+
+                  Add to cart</span
+
+                ></a
+
+              >
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </template>
+
+    </div>
+
+    <!-- Modal Box Item Detail End -->
+
+    <!-- Feather Icons -->
+
+    <script>
+
+      feather.replace();
+
+    </script>
+
+    <!-- Javascript -->
+
+    <script src="script.js"></script>
+
+    <script
+
+      type="text/javascript"
+
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+
+    ></script>
+
+    <script type="text/javascript">
+
+      (function () {
+
+        emailjs.init({
+
+          publicKey: "OHhj2_2kAhvip33MD",
+
+        });
+
+      })();
+
+    </script>
+
+  </body>
+
+</html>
+
+<!-- <div
+
+      class="modal"
+
+      id="item-detail"
+
+      x-show="isShow"
+
+      @click.self="isShow = false"
+
+      x-data="products"
+
+    >
+
+      <template x-for="(currentProduct, index) in items" x-key="index">
+
+      <div class="modal-container">
+
+        <a href="#" class="close-icon"><i data-feather="x"></i></a>
+
+        <div class="modal-content" x-show="currentProduct">
+
+          <img
+
+            :src="`img/products/${currentProduct.img}`"
+
+            :alt="currentProduct.name"
+
+          />
+
+          <div class="product-content">
+
+            <h3 x-text="currentProduct.name"></h3>
+
+            <p>
+
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam
+
+              delectus nihil dolorem! Ea repellendus aperiam voluptatem est non
+
+              consequatur! Minima deserunt ut alias unde ipsam.
+
+            </p>
+
+            <div class="product-stars">
+
+              <svg
+
+                width="24"
+
+                height="24"
+
+                fill="#b6895b"
+
+                stroke="#b6895b"
+
+                stroke-width="2"
+
+                stroke-linecap="round"
+
+                stroke-linejoin="round"
+
+              >
+
+                <use href="img/feather-sprite.svg#star" />
+
+              </svg>
+
+              <svg
+
+                width="24"
+
+                height="24"
+
+                fill="#b6895b"
+
+                stroke="#b6895b"
+
+                stroke-width="2"
+
+                stroke-linecap="round"
+
+                stroke-linejoin="round"
+
+              >
+
+                <use href="img/feather-sprite.svg#star" />
+
+              </svg>
+
+              <svg
+
+                width="24"
+
+                height="24"
+
+                fill="#b6895b"
+
+                stroke="#b6895b"
+
+                stroke-width="2"
+
+                stroke-linecap="round"
+
+                stroke-linejoin="round"
+
+              >
+
+                <use href="img/feather-sprite.svg#star" />
+
+              </svg>
+
+              <svg
+
+                width="24"
+
+                height="24"
+
+                fill="#b6895b"
+
+                stroke="#b6895b"
+
+                stroke-width="2"
+
+                stroke-linecap="round"
+
+                stroke-linejoin="round"
+
+              >
+
+                <use href="img/feather-sprite.svg#star" />
+
+              </svg>
+
+              <svg
+
+                width="24"
+
+                height="24"
+
+                fill="#b6895b"
+
+                stroke="#b6895b"
+
+                stroke-width="2"
+
+                stroke-linecap="round"
+
+                stroke-linejoin="round"
+
+              >
+
+                <use href="img/feather-sprite.svg#star" />
+
+              </svg>
+
+            </div>
+
+            <div class="product-price">
+
+              <span x-text="rupiah(item.price)">IDR 12K</span>
+
+            </div>
+
+            <a href="#" @click.prevent="$store.cart.add(currentProduct)"
+
+              ><i data-feather="shopping-cart"></i> <span>+Keranjang</span></a
+
+            >
+
+          </div>
+
+        </div>
+
+      </div>
+
+     </template> 
+
+    </div> -->
