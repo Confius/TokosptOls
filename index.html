@@ -35,7 +35,7 @@
         <a href="#about">About</a>
         <a href="#menu">Menu</a>
         <a href="#products">Products</a>
-        <a href="#contact">Contact</a>
+        <a href="#contact">Alamat</a>
       </div>
 
       <div class="navbar-mark">
@@ -140,8 +140,7 @@
           <span> impian anda. </span>
         </h3>
         <p>
-          Kohi is a coffee destination break that combines the best taste of
-          coffee with a stunning blend of Japanese aesthetics.
+          Mari temukan sepatu impian anda di Olsport_id.
         </p>
         <!-- <a href="#" class="cta">Pesan Sekarang</a> -->
       </main>
@@ -176,8 +175,8 @@
     <section id="menu" class="menu">
       <h2>Tersedia semua<span> Merk</span></h2>
       <p>
-        Enjoy our superior products with exclusive flavors and served for
-        Exclusive Connoisseurs.
+        Buruan order karena semua stok terbatas
+•Open order: Sepatu second 100% original authentic & berkualitas 95% masih bagus tanpa minus, No Box ..
       </p>
       <div class="row">
         <div class="menu-card">
@@ -232,8 +231,7 @@
     <section class="products" id="products" x-data="products">
       <h2><span>Our</span> Products</h2>
       <p>
-        Fill the Day Remotely, with just a Pick, Click and Your Order Launch
-        Home Immediately. or Pick Up Your Day Fillers at Our Place.
+       Cara order : Klik tombol keranjang yang berada di atas gambar sepatu yang mau anda order,untuk selanjutnya cek/klik tombol keranjang belanja pojok kanan atas dan silahkan isi data pelanggang, setelah di isi semua klik tombol Checkout,Terimakasih.
       </p>
       <!-- <input type="search" x-model="search" /> -->
       <div class="row">
@@ -253,82 +251,12 @@
                   <use href="img/feather-sprite.svg#shopping-cart" />
                 </svg>
               </a>
-              <a href="#" class="item-detail-button" @click.prevent="mata()">
-                <svg
-                  width="24"
-                  height="24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="img/feather-sprite.svg#eye" />
-                </svg>
-              </a>
             </div>
             <div class="product-images">
               <img :src="`img/products/${item.img}`" :alt="item.name" />
             </div>
             <div class="product-content">
               <h3 x-text="item.name"></h3>
-              <div class="product-stars">
-                <svg
-                  width="24"
-                  height="24"
-                  fill="#b6895b"
-                  stroke="#b6895b"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="img/feather-sprite.svg#star" />
-                </svg>
-                <svg
-                  width="24"
-                  height="24"
-                  fill="#b6895b"
-                  stroke="#b6895b"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="img/feather-sprite.svg#star" />
-                </svg>
-                <svg
-                  width="24"
-                  height="24"
-                  fill="#b6895b"
-                  stroke="#b6895b"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="img/feather-sprite.svg#star" />
-                </svg>
-                <svg
-                  width="24"
-                  height="24"
-                  fill="#b6895b"
-                  stroke="#b6895b"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="img/feather-sprite.svg#star" />
-                </svg>
-                <svg
-                  width="24"
-                  height="24"
-                  fill="#b6895b"
-                  stroke="#b6895b"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="img/feather-sprite.svg#star" />
-                </svg>
-              </div>
               <!-- <div class="product-ingredients">
                 <p>Kadar Gula: 9.02%</p>
               </div> -->
@@ -344,8 +272,8 @@
 
     <!-- Contact Section Ready-->
     <section id="contact" class="contact">
-      <h2>Contact<span> Us</span></h2>
-      <p>Contact Us For Business Inquires</p>
+      <h2>Alamat<span>Toko</span></h2>
+      <p></p>
       <div class="row">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2020608.5958903893!2d113.75260045228892!3d-8.450545605151165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd141d3e8100fa1%3A0x24910fb14b24e690!2sBali!5e0!3m2!1sid!2sid!4v17283926700"
@@ -356,21 +284,6 @@
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
-        <!-- <form action=""> -->
-        <div class="input-group">
-          <i data-feather="user"></i>
-          <input type="text" id="fullName2" placeholder="name" />
-        </div>
-        <div class="input-group">
-          <i data-feather="mail"></i>
-          <input type="text" id="email_id2" placeholder="email" />
-        </div>
-        <div class="input-group">
-          <i data-feather="message-square"></i>
-          <input type="text" id="message2" placeholder="message" />
-        </div>
-        <button type="submit" class="btn" onclick="SendMail2()">Send</button>
-        <!-- </form> -->
       </div>
     </section>
     <!-- Contact Section End-->
@@ -407,19 +320,18 @@
 
     <!-- Footer Section End -->
 
-    <!-- Modal Box Item Detail Start -->
-
-    <div class="modal" id="item-detail" x-data="products">
-      <template x-for="(item, index) in items" x-key="index">
-        <div class="modal-container">
-          <a href="#" class="close-icon"><i data-feather="x"></i></a>
-          <div class="modal-content">
-            <img :src="`img/products/${item.img}`" :alt="item.name" />
-            <div class="product-content">
-              <h3 x-text="item.name"></h3>
-              <p x-text="item.detail"></p>
-              <div class="product-stars">
-                <svg
+  <!-- Modal Box Item Detail start -->
+  <div class="modal" id="item-detail" x-data="products">
+    <template x-for="(item, index) in items" x-key="index">
+    <div class="modal-container">
+      <a href="#" class="close-icon"><i data-feather="x-circle"></i></a>
+      <div class="modal-content">
+        <img :src="`img/products/${item.img}`" :alt="item.name" />
+        <div class="product-content">
+          <h3 x-text="item.name"></h3>
+          <p x-text="item.detail"></p>
+          <div class="product-stars">
+            <svg
                   width="24"
                   height="24"
                   fill="#b6895b"
@@ -430,55 +342,10 @@
                 >
                   <use href="img/feather-sprite.svg#star" />
                 </svg>
-                <svg
-                  width="24"
-                  height="24"
-                  fill="#b6895b"
-                  stroke="#b6895b"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="img/feather-sprite.svg#star" />
-                </svg>
-                <svg
-                  width="24"
-                  height="24"
-                  fill="#b6895b"
-                  stroke="#b6895b"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="img/feather-sprite.svg#star" />
-                </svg>
-                <svg
-                  width="24"
-                  height="24"
-                  fill="#b6895b"
-                  stroke="#b6895b"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="img/feather-sprite.svg#star" />
-                </svg>
-                <svg
-                  width="24"
-                  height="24"
-                  fill="#b6895b"
-                  stroke="#b6895b"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="img/feather-sprite.svg#star" />
-                </svg>
-              </div>
-              <div class="modal-price">
-                <span x-text="rupiah(item.price)"></span>
-              </div>
-              <a href="#" @click.prevent="$store.cart.add(item)"
+          </div>
+          <div class="modal-price"><span x-text="rupiah(item.price)"></span>
+          </div>
+          <a href="#" @click.prevent="$store.cart.add(item)"
                 ><i data-feather="shopping-cart"></i>
                 <span
                   ><svg
@@ -495,12 +362,12 @@
                   Add to cart</span
                 ></a
               >
-            </div>
-          </div>
         </div>
-      </template>
+      </div>
     </div>
-    <!-- Modal Box Item Detail End -->
+   </template>
+  </div>
+  <!-- Modal Box Item Detail end -->
 
     <!-- Feather Icons -->
     <script>
@@ -521,7 +388,7 @@
 
       id: 1,
 
-      name: "Mizuno",
+      name: "ONITSUKA TIGER MEXICO 66.",
 
       img: "1.jpg",
 
@@ -537,7 +404,7 @@
 
       id: 2,
 
-      name: "Mizuno",
+      name: "ONITSUKA TIGER SLIP CREAM BLACK.",
 
       img: "2.jpg",
 
@@ -553,7 +420,7 @@
 
       id: 3,
 
-      name: "Mizuno",
+      name: "ONITSUKA TIGER MEXSICO 66 MANTLE GREEN.",
 
       img: "3.jpg",
 
@@ -569,7 +436,7 @@
 
       id: 4,
 
-      name: "Nike",
+      name: "NIKE DUNK LOW PINK.",
 
       img: "4.jpg",
 
@@ -585,7 +452,7 @@
 
       id: 5,
 
-      name: "Nike",
+      name: "NIKE DUNK LOW RETRO WHITE WOLF GREY.",
 
       img: "5.jpg",
 
@@ -596,7 +463,141 @@
         "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
 
     },
+    {
 
+      id: 6,
+
+      name: "NIKE DUNK LOW HARVEST MOON.",
+
+      img: "6.jpg",
+
+      price: 50000,
+
+      detail:
+
+        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
+
+    },
+        {
+
+      id: 7,
+
+      name: "AIR JORDAN 1 LOW PASTEL PURPLE.",
+
+      img: "7.jpg",
+
+      price: 50000,
+
+      detail:
+
+        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
+
+    },
+        {
+
+      id: 8,
+
+      name: "NIKE JORDAN 1 LOW PANDA.",
+
+      img: "8.jpg",
+
+      price: 50000,
+
+      detail:
+
+        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
+
+    },
+        {
+
+      id: 9,
+
+      name: "NIKE DUNK LOW HARVEST MOON.",
+
+      img: "9.jpg",
+
+      price: 50000,
+
+      detail:
+
+        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
+
+    },
+        {
+
+      id: 10,
+
+      name: "AIR JORDAN 1 LOW PARIS.",
+
+      img: "10.jpg",
+
+      price: 50000,
+
+      detail:
+
+        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
+
+    },
+        {
+
+      id: 11,
+
+      name: "ADIDAS SAMBA ROSE BLACK GUM.",
+
+      img: "11.jpg",
+
+      price: 50000,
+
+      detail:
+
+        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
+
+    },
+        {
+
+      id: 12,
+
+      name: "ADIDAS SAMBA ROSE WHITE GUM.",
+
+      img: "12.jpg",
+
+      price: 50000,
+
+      detail:
+
+        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
+
+    },
+        {
+
+      id: 13,
+
+      name: "ONITSUKA TIGER MEXICO 66 VIN BIRCH GREEN.",
+
+      img: "13.jpg",
+
+      price: 50000,
+
+      detail:
+
+        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
+
+    },
+        {
+
+      id: 14,
+
+      name: "ONITSUKA TOKUTEN BEIGE GREEN.",
+
+      img: "14.jpg",
+
+      price: 50000,
+
+      detail:
+
+        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
+
+    },
   ];
 
   Alpine.data("products", () => ({
