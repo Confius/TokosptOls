@@ -1,280 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Olsport_id</title>
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- feathers icons -->
-    <script src="https://unpkg.com/feather-icons"></script>
+<html>
 
-    <!-- Direktori css -->
-    <link rel="stylesheet" href="style.css" />
-    <!-- Framework Alpine JS -->
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>olsport_id</title>
+  
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script src="src/app.js" async></script>
+
+<script
+      defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
-    
-    
-  </head>
-  <body>
-    <!-- Navbar Start -->
 
-    <nav class="Navbar" x-data="products">
-      <a href="#" class="Navbar-logo">Olsport_<span>id</span></a>
+</head>
+<body>
+<!-- peringatan -->
+<!-- peringatan selesai-->
 
-      <div class="navbar-nav">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#menu">Menu</a>
-        <a href="#products">Products</a>
-        <a href="#contact">Alamat</a>
-      </div>
+<!-- card -->
+<!-- card selesai -->
 
-      <div class="navbar-mark">
-        <a href="#" id="Search-button"> <i data-feather="search"></i></a>
-        <a href="#" id="Shopping-cart-button"
-          ><i data-feather="shopping-cart"></i
-          ><span
-            class="quantity-badge"
-            x-show="$store.cart.quantity"
-            x-text="$store.cart.quantity"
-          ></span
-        ></a>
-        <a href="#" id="Sidebar"> <i data-feather="menu"></i></a>
-      </div>
-      <!-- Search Button Start -->
-      <div class="search-form">
-        <input
-          type="search"
-          id="search-box"
-          x-model="search"
-          placeholder="search here.."
-        />
-        <label for="search-box"><i data-feather="search"></i></label>
-      </div>
-      <!-- Search Button End -->
+<!-- Navbar -->
+<header class="bg-white">
+  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+    <div class="flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between">
+      <div>
+        <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">Welcome to Olsport_id</h1>
 
-      <!-- Shopping Cart Start -->
-      <div class="shopping-cart">
-        <template x-for="(item, index) in $store.cart.items" x-keys="index">
-          <div class="cart-items">
-            <img :src="`img/products/${item.img}`" :alt="item.name" />
-            <div class="item-detail">
-              <h3 x-text="item.name"></h3>
-              <div class="item-price">
-                <span x-text="rupiah(item.price)"></span> &times;
-                <button id="remove" @click="$store.cart.remove(item.id)">
-                  &minus;
-                </button>
-                <span x-text="item.quantity"></span>
-                <button id="add" @click="$store.cart.add(item)">&plus;</button>
-                &equals;
-                <span id="sub-total" x-text="rupiah(item.total)"></span>
-              </div>
-            </div>
-          </div>
-        </template>
-        <h4 x-show="!$store.cart.items.length">Your cart is empty</h4>
-        <h4 x-show="$store.cart.items.length">
-          Total: <span x-text="rupiah($store.cart.total)"></span>
-        </h4>
-        <div class="form-checkout" x-show="$store.cart.items.length">
-          <form action="" id="checkoutForm">
-            <input
-              type="hidden"
-              name="items"
-              x-model="JSON.stringify($store.cart.items)"
-            />
-            <input type="hidden" name="total" x-model="$store.cart.total" />
-            <h5>Detail Pelanggan</h5>
-
-            <label for="name">
-              <span>Name</span>
-              <input type="text" id="name" name="name" />
-            </label>
-            <label for="email">
-              <span>Alamat</span>
-              <input type="text" id="alamat" name="alamat" />
-            </label>
-            <label for="phone">
-              <span>Phone</span>
-              <input type="number" id="phone" name="phone" autocomplete="off" />
-            </label>
-            <label for="order">
-              <span>Order</span>
-              <select name="order" id="order">
-                <option value="Delivery">Deliver</option>
-                <option value="Take Away"></option>
-              </select>
-            </label>
-            <button
-              class="checkout-button disabled"
-              type="submit"
-              id="checkout-button"
-              value="checkout"
-            >
-              Checkout
-            </button>
-          </form>
-        </div>
-      </div>
-      <!-- Shopping Cart End -->
-    </nav>
-
-    <!-- Navbar End -->
-
-    <!-- Hero Section Start -->
-
-    <section class="hero" id="home">
-      <main class="content">
-        <h3>
-          Temukan sepatu
-          <span> impian anda. </span>
-        </h3>
-        <p>
-          Mari temukan sepatu impian anda di Olsport_id.
+        <p class="mt-1.5 text-sm text-gray-500">
+          Mari temukan sepatu impian anda di olsport_id dengan harga terjangkau.
         </p>
-        <!-- <a href="#" class="cta">Pesan Sekarang</a> -->
-      </main>
-    </section>
+      </div>
 
-    <!-- Hero Section End -->
+      <div class="flex items-center gap-4">
+        <a href="cara-belanja.html"
+          class="inline-flex items-center justify-center gap-1.5 rounded border border-gray-200 bg-white px-5 py-3 text-gray-900 transition hover:text-gray-700 focus:outline-none focus:ring"
+          type="button"
+        >
+          <span class="text-sm font-medium"> Cara Belanja </span>
+        </a>
 
-    <!-- About Section Ready -->
-    <section id="about" class="about">
-      <h2>About<span> Us</span></h2>
+        <button
+        
+          class="inline-block rounded bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring"
+          type="button"
+        >
+          <a href="http://wa.me/6281297647873?text=">Hubungi Admin</a>
+          
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Navbar selesai -->
 
-      <div class="row">
-        <div class="about-img">
-          <img
-            src="image1.jpg"
-            alt="About Us"
-            width="400"
-            height="300"
-          />
-        </div>
-        <div class="content">
-          <h3>Kenapa harga sepatu murah?</h3>
-          <p>
-           kami sedang mengadakan diskon besar-besaran semua harga sepatu yang kami jual serba 50k buruan ceckout sebelum kehabisan stok .
+
+    <!-- Sepatu terbaru -->
+<section
+  class="overflow-hidden bg-[url(kekeranjang.jpeg)] bg-cover bg-top bg-no-repeat"
+>
+  <div class="bg-black/50 p-8 md:p-12 lg:px-16 lg:py-24">
+    <div class="text-center ltr:sm:text-left rtl:sm:text-right">
+      <h2 class="text-2xl font-bold text-white sm:text-3xl md:text-5xl">Latest Shirts</h2>
+
+      <p class="hidden max-w-lg text-white/90 md:mt-6 md:block md:text-lg md:leading-relaxed">
+        klik belanja sekarang dan pilih sepatu yang anda cari, semua tersedia di Olsport_id.
+      </p>
+
+      <div class="mt-4 sm:mt-8">
+        <a
+          href="keranjang/keranjang.html"
+          class="inline-block rounded-full bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400"
+        >
+          Belanja Sekarang
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+    <!-- sepatu terbaru selesai -->
+
+
+
+<!-- Data olsport -->
+<section>
+  <div class="mx-auto max-w-screen-2xl px-4 py-8 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <div class="bg-blue-600 p-8 md:p-12 lg:px-16 lg:py-24">
+        <div class="mx-auto max-w-xl text-center">
+          <h2 class="text-2xl font-bold text-white md:text-3xl">
+            informasi tentang kami. Olsport_id
+          </h2>
+
+          <p class="hidden text-white/90 sm:mt-4 sm:block">
+            Kami memulai bisnis jualan sepatu dari 2019 sampai sekarang, dan kami menyediakan berbagai macam sepatu, untuk kualitas gak usah di ragukan lagi karena semua produk yang kami jual 100% Original, satu juga keunggulan dari toko kami, kami menjual sepatu lebih murah dari toko lain.
           </p>
+
+
         </div>
       </div>
-    </section>
-    <!-- About Section End-->
 
-    <!-- Menu Section Start -->
-    <section id="menu" class="menu">
-      <h2>Tersedia semua<span> Merk</span></h2>
-      <p>
-        Buruan order karena semua stok terbatas
-•Open order: Sepatu second 100% original authentic & berkualitas 95% masih bagus tanpa minus, No Box ..
-      </p>
-      <div class="row">
-        <div class="menu-card">
-          <img
-            src="menu\nike.jpg"
-            alt="latte"
-            class="menu-card-image"
-            width="150"
-            height="150"
-          />
-          <h3 class="menu-card-title">-NIKE-</h3>
-          <p class="menu-card-price"></p>
-        </div>
-        <div class="menu-card">
-          <img
-            src="menu/adidas.jpg"
-            alt="latte"
-            class="menu-card-image"
-            width="150"
-            height="150"
-          />
-          <h3 class="menu-card-title">-ADIDAS-</h3>
-          <p class="menu-card-price"></p>
-        </div>
-        <div class="menu-card">
-          <img
-            src="menu\puma.jpg"
-            alt="latte"
-            class="menu-card-image"
-            width="150"
-            height="150"
-          />
-          <h3 class="menu-card-title">-PUMA-</h3>
-          <p class="menu-card-price"></p>
-        </div>
-        <div class="menu-card">
-          <img
-            src="menu\specs.jpg"
-            alt="latte"
-            class="menu-card-image"
-            width="150"
-            height="150"
-          />
-          <h3 class="menu-card-title">-Specs-</h3>
-          <p class="menu-card-price"></p>
-        </div>
-      </div>
-    </section>
-    <!-- Menu Section End -->
+      <div class="grid grid-cols-2 gap-4 md:grid-cols-1 lg:grid-cols-2">
+        <img
+          alt=""
+          src="image1.jpg"
+          class="h-40 w-full object-cover sm:h-56 md:h-full"
+        />
 
-    <!-- Product Section Ready -->
-    <section class="products" id="products" x-data="products">
-      <h2><span>Our</span> Products</h2>
-      <p>
-       Cara order : Klik tombol keranjang yang berada di atas gambar sepatu yang mau anda order,untuk selanjutnya cek/klik tombol keranjang belanja pojok kanan atas dan silahkan isi data pelanggang, setelah di isi semua klik tombol Checkout,Terimakasih.
-      </p>
-      <!-- <input type="search" x-model="search" /> -->
-      <div class="row">
-        <template x-for="(item, index) in items" x-key="index">
-          <div class="product-card">
-            <div class="product-icons">
-              <a href="#" @click.prevent="$store.cart.add(item)">
-                <svg
-                  width="24"
-                  height="24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="img/feather-sprite.svg#shopping-cart" />
-                </svg>
-              </a>
-            </div>
-            <div class="product-images">
-              <img :src="`img/products/${item.img}`" :alt="item.name" />
-            </div>
-            <div class="product-content">
-              <h3 x-text="item.name"></h3>
-              <!-- <div class="product-ingredients">
-                <p>Kadar Gula: 9.02%</p>
-              </div> -->
-              <div class="product-price">
-                <span x-text="rupiah(item.price)"></span>
-              </div>
-            </div>
-          </div>
-        </template>
-      </div>
-    </section>
-    <!-- Product Section End -->
-
-    <!-- Contact Section Ready-->
-    <section id="contact" class="contact">
-      <h2>Alamat<span>Toko</span></h2>
-      <p></p>
-      <div class="row">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2020608.5958903893!2d113.75260045228892!3d-8.450545605151165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd141d3e8100fa1%3A0x24910fb14b24e690!2sBali!5e0!3m2!1sid!2sid!4v17283926700"
           width="300"
@@ -285,1005 +119,27 @@
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
-    </section>
-    <!-- Contact Section End-->
-
-    <!-- Footer Section Start -->
-
-    <footer>
-      <div class="socials">
-        <a href="https://www.instagram.com/olsport_id?igsh=MTBsaDhuMXAyMjZ3cg=="
-          ><i data-feather="instagram"></i
-        ></a>
-        <a href=""
-          ><i data-feather="facebook"></i
-        ></a>
-        <a href="https://www.linkedin.com/in/reihan-darussalam-182827237/"
-          ><i data-feather="linkedin"></i
-        ></a>
-      </div>
-
-      <div class="links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#menu">Menu</a>
-        <a href="#contact">Kontak</a>
-      </div>
-
-      <div class="credit">
-        <p>
-          Developed by <a href="https://github.com">Olsport</a>. |
-          &copy; 2020
-        </p>
-      </div>
-    </footer>
-
-    <!-- Footer Section End -->
-
-  <!-- Modal Box Item Detail start -->
-  <div class="modal" id="item-detail" x-data="products">
-    <template x-for="(item, index) in items" x-key="index">
-    <div class="modal-container">
-      <a href="#" class="close-icon"><i data-feather="x-circle"></i></a>
-      <div class="modal-content">
-        <img :src="`img/products/${item.img}`" :alt="item.name" />
-        <div class="product-content">
-          <h3 x-text="item.name"></h3>
-          <p x-text="item.detail"></p>
-          <div class="product-stars">
-            <svg
-                  width="24"
-                  height="24"
-                  fill="#b6895b"
-                  stroke="#b6895b"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="img/feather-sprite.svg#star" />
-                </svg>
-          </div>
-          <div class="modal-price"><span x-text="rupiah(item.price)"></span>
-          </div>
-          <a href="#" @click.prevent="$store.cart.add(item)"
-                ><i data-feather="shopping-cart"></i>
-                <span
-                  ><svg
-                    width="20"
-                    height="20"
-                    fill="none"
-                    stroke="#fff"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <use href="img/feather-sprite.svg#shopping-cart" />
-                  </svg>
-                  Add to cart</span
-                ></a
-              >
-        </div>
-      </div>
     </div>
-   </template>
   </div>
-  <!-- Modal Box Item Detail end -->
-
-    <!-- Feather Icons -->
-    <script>
-      feather.replace();
-    </script>
-
-    <!-- Javascript -->
-
-    <script src="script.js"></script>
-    
-            <!-- Direktori AlpineJS -->
-    <script>
-      document.addEventListener("alpine:init", () => {
-
-  const dataProduk = [
-
-    {
-
-      id: 1,
-
-      name: "ONITSUKA TIGER MEXICO 66.",
-
-      img: "1.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU MIZUNO MORELIA NEO SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-
-    },
-
-    {
-
-      id: 2,
-
-      name: "ONITSUKA TIGER SLIP CREAM BLACK.",
-
-      img: "2.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU MIZUNO MORELIA NEO II FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-
-    },
-
-    {
-
-      id: 3,
-
-      name: "ONITSUKA TIGER MEXSICO 66 MANTLE GREEN.",
-
-      img: "3.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Mizuno neo morelia III elite SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-
-    },
-
-    {
-
-      id: 4,
-
-      name: "NIKE DUNK LOW PINK.",
-
-      img: "4.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Mercurial Vapor 14 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-
-    },
-
-    {
-
-      id: 5,
-
-      name: "NIKE DUNK LOW RETRO WHITE WOLF GREY.",
-
-      img: "5.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-
-    },
-    {
-
-      id: 6,
-
-      name: "NIKE DUNK LOW HARVEST MOON.",
-
-      img: "6.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-
-    },
-        {
-
-      id: 7,
-
-      name: "AIR JORDAN 1 LOW PASTEL PURPLE.",
-
-      img: "7.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-
-    },
-        {
-
-      id: 8,
-
-      name: "NIKE JORDAN 1 LOW PANDA.",
-
-      img: "8.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-
-    },
-        {
-
-      id: 9,
-
-      name: "NIKE DUNK LOW HARVEST MOON.",
-
-      img: "9.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-
-    },
-        {
-
-      id: 10,
-
-      name: "AIR JORDAN 1 LOW PARIS.",
-
-      img: "10.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-
-    },
-        {
-
-      id: 11,
-
-      name: "ADIDAS SAMBA ROSE BLACK GUM.",
-
-      img: "11.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-
-    },
-        {
-
-      id: 12,
-
-      name: "ADIDAS SAMBA ROSE WHITE GUM.",
-
-      img: "12.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-
-    },
-        {
-
-      id: 13,
-
-      name: "ONITSUKA TIGER MEXICO 66 VIN BIRCH GREEN.",
-
-      img: "13.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-
-    },
-        {
-
-      id: 14,
-
-      name: "ONITSUKA TOKUTEN BEIGE GREEN.",
-
-      img: "14.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-
-    },
-        {
-
-      id: 14,
-
-      name: "ONITSUKA TOKUTEN BEIGE GREEN.",
-
-      img: "14.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-
-    },
-    {
-      id: 15,
-
-      name: "VANS OLD SKOOL CLASSIC.",
-
-      img: "15.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-},
-{
-      id: 16,
-
-      name: "Random",
-
-      img: "16.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-},
-{
-      id: 17,
-
-      name: "ADIDAS HANDBALL SPEZIAL BLUE ICE.",
-
-      img: "17.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-},
-{
-      id: 18,
-
-      name: "NIKE AIR JORDAN 1 LOW BRED SAIL.",
-
-      img: "18.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-},
-{
-      id: 19,
-
-      name: "AIR JORDAN 1 LOW PANDA GS.",
-
-      img: "19.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-},
-{
-      id: 20,
-
-      name: "NIKE AIR JORDAN 1 LOW SE REVERSE ICE BLUE.",
-
-      img: "20.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-},
-{
-      id: 21,
-
-      name: "AIR JORDAN 1 LOW x TRAVIS SCOTT MOCHA.",
-
-      img: "21.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-},
-{
-      id: 22,
-
-      name: "NIKE WMNS DUNK LOW LIGHT SMOKE GREY.",
-
-      img: "22.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-},
-{
-      id: 23,
-
-      name: "NEW BALANCE 990 V3 GREY ABU.",
-
-      img: "23.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-},
-{
-      id: 24,
-
-      name: "NEW BALANCE 990v3 GREY.",
-
-      img: "24.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-},
-{
-      id: 25,
-
-      name: "NEW BALANCE 2002R.",
-
-      img: "25.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-},
-{
-      id: 26,
-
-      name: "NEW BALANCE 1906R BRIGHTON GREY BLACK",
-
-      img: "26.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-},
-{
-      id: 28,
-
-      name: "ADIDAS SAMBAROSE CLOUD WHITE SILVER.",
-
-      img: "28.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-},
-{
-      id: 29,
-
-      name: "ADIDAS SAMBA OG PINK WHITE.",
-
-      img: "29.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-},
-{
-      id: 30,
-
-      name: "ADIDAS SAMBA ROSE.",
-
-      img: "30.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-},
-{
-      id: 31,
-
-      name: "ADIDAS SPEZIAL ALUMINIUM CORE BLACK.",
-
-      img: "31.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-},
-{
-      id: 32,
-
-      name: "ADIDAS VELOSAMBA CHYLING.",
-
-      img: "32.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-},
-{
-      id: 33,
-
-      name: "Random",
-
-      img: "33.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-},
-{
-      id: 34,
-
-      name: "ONITSUKA TOKUTEN WHITE PINK.",
-
-      img: "34.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-},
-{
-      id: 35,
-
-      name: "ONITSUKA TOKUTEN BLACK WHITE.",
-
-      img: "35.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-},
-{
-      id: 36,
-
-      name: "ONITSUKA TIGER TOKUTEN BURGUNDY.",
-
-      img: "36.jpg",
-
-      price: 50000,
-
-      detail:
-
-        "SEPATU Nike Phantom GT 2 Elite FG SIZE : 37-38-39-40-41-42-43-44-45 Buruan order karena semua stok terbatasOpen order barang di jamin ori",
-},
-  ];
-
-  Alpine.data("products", () => ({
-
-    search: "",
-
-    items: dataProduk,
-
-    currentProduct: null,
-
-    get filteredItems() {
-
-      if (this.search.trim() === "") {
-
-        return this.items;
-
-      }
-
-      return this.items.filter((item) => {
-
-        return item.name
-
-          .replace(/ /g, "")
-
-          .toLowerCase()
-
-          .includes(this.search.replace(/ /g, "").toLowerCase());
-
-      });
-
-    },
-
-    setCurrentProduct(idProduct) {
-
-      this.currentProduct = this.items.find((item) => item.id === idProduct);
-
-      this.isShow = true;
-
-    },
-
-  }));
-
-  Alpine.store("cart", {
-
-    items: [],
-
-    total: 0,
-
-    quantity: 0,
-
-    // cek apakah ada barang yg sama di cart
-
-    add(newItem) {
-
-      const cartItem = this.items.find((item) => item.id === newItem.id);
-
-      // jika masih cart kosong
-
-      if (!cartItem) {
-
-        this.items.push({ ...newItem, quantity: 1, total: newItem.price });
-
-        this.quantity++;
-
-        this.total += newItem.price;
-
-      }
-
-      // Jika cart berisi cek apakah jenis barangnya sama
-
-      else {
-
-        this.items = this.items.map((item) => {
-
-          // jika barang yg berbeda
-
-          if (item.id !== newItem.id) {
-
-            return item;
-
-          }
-
-          // Jika barang yang sama sudah ada, tambah ke kuantitas
-
-          else {
-
-            item.quantity++;
-
-            item.total = item.price * item.quantity;
-
-            this.quantity++;
-
-            this.total += newItem.price;
-
-            return item;
-
-          }
-
-        });
-
-      }
-
-    },
-
-    remove(id) {
-
-      // ambil item untuk di remove berdasarkan id nya
-
-      const cartItem = this.items.find((item) => item.id === id);
-
-      // jika kuantitas barang tsb lebih dari satu
-
-      if (cartItem.quantity > 1) {
-
-        // telusuri 1 1
-
-        this.items = this.items.map((item) => {
-
-          // jika bukan barang yg di add
-
-          if (item.id !== id) {
-
-            return item;
-
-          } else {
-
-            item.quantity--;
-
-            item.total = item.price * item.quantity;
-
-            this.quantity--;
-
-            this.total -= item.price;
-
-            return item;
-
-          }
-
-        });
-
-      }
-
-      // jika barang yg dipilih sisa 1
-
-      else if (cartItem.quantity === 1) {
-
-        this.items = this.items.filter((item) => item.id !== id);
-
-        this.quantity--;
-
-        this.total -= cartItem.price;
-
-      }
-
-    },
-
-    clearCart(id) {
-
-      const cartItem = this.items.find((item) => item.id === id);
-
-      if (cartItem.quantity > 1) {
-
-        this.items = this.items.map((item) => {
-
-          if (item.id !== id) {
-
-            return item;
-
-          } else {
-
-            this.items = [];
-
-            this.quantity = 0;
-
-            this.total = 0;
-
-          }
-
-        });
-
-      }
-
-    },
-
-  });
-
-});
-
-function SendMail2() {
-
-  var params = {
-
-    from_name: document.getElementById("fullName2").value,
-
-    email_id: document.getElementById("email_id2").value,
-
-    message: document.getElementById("message2").value,
-
-  };
-
-  emailjs
-
-    .send("service_8jfzpej", "template_ihzl9h6", params)
-
-    .then(function (res) {
-
-      alert("Success" + res.status);
-
-    });
-
-}
-
-// Validasi Form
-
-const validator = document.querySelector(".checkout-button");
-
-validator.disabled = true;
-
-const form = document.querySelector("#checkoutForm");
-
-form.addEventListener("keyup", function () {
-
-  for (let i = 0; i < form.elements.length; i++) {
-
-    if (form.elements[i].value.length !== 0) {
-
-      validator.classList.remove("disabled");
-
-      validator.classList.add("disabled");
-
-    } else {
-
-      return false;
-
-    }
-
-  }
-
-  validator.disabled = false;
-
-  validator.classList.remove("disabled");
-
-});
-
-// kirim data ketika klik checkout
-
-validator.addEventListener("click", function (e) {
-
-  e.preventDefault();
-
-  const formData = new FormData(form);
-
-  const data = new URLSearchParams(formData);
-
-  const objData = Object.fromEntries(data);
-
-  console.log(objData);
-
-  const message = formatMessage(objData);
-
-  window.open("http://wa.me/6281297647873?text=" + encodeURIComponent(message));
-
-});
-
-// Format data ke whatsapp
-
-const formatMessage = (obj) => {
-
-  return `Data Customer
-
-    Nama: ${obj.name}
-
-    Email: ${obj.alamat}
-
-    No HP: ${obj.phone}
-
-    Jenis Order: ${obj.order}
-
-Data Pesanan
-
-  ${JSON.parse(obj.items).map(
-
-    (item) => `${item.name} (${item.quantity} x ${rupiah(item.total)}) \n`
-
-  )}
-
-Total: ${rupiah(obj.total)}
-
-Terima Kasih.`;
-
-};
-
-// konverse ke rupiah
-
-const rupiah = (number) => {
-
-  return new Intl.NumberFormat("id-ID", {
-
-    style: "currency",
-
-    currency: "IDR",
-
-    minimumFractionDigits: 0,
-
-  }).format(number);
-
-};
-    </script>
-  </body>
-</html>
-
-<!-- <div
-      class="modal"
-      id="item-detail"
-      x-show="isShow"
-      @click.self="isShow = false"
-      x-data="products"
-    >
-      <template x-for="(currentProduct, index) in items" x-key="index">
-      <div class="modal-container">
-        <a href="#" class="close-icon"><i data-feather="x"></i></a>
-        <div class="modal-content" x-show="currentProduct">
-          <img
-            :src="`img/products/${currentProduct.img}`"
-            :alt="currentProduct.name"
-          />
-          <div class="product-content">
-            <h3 x-text="currentProduct.name"></h3>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam
-              delectus nihil dolorem! Ea repellendus aperiam voluptatem est non
-              consequatur! Minima deserunt ut alias unde ipsam.
-            </p>
-            <div class="product-stars">
-              <svg
-                width="24"
-                height="24"
-                fill="#b6895b"
-                stroke="#b6895b"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <use href="img/feather-sprite.svg#star" />
-              </svg>
-              <svg
-                width="24"
-                height="24"
-                fill="#b6895b"
-                stroke="#b6895b"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <use href="img/feather-sprite.svg#star" />
-              </svg>
-              <svg
-                width="24"
-                height="24"
-                fill="#b6895b"
-                stroke="#b6895b"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <use href="img/feather-sprite.svg#star" />
-              </svg>
-              <svg
-                width="24"
-                height="24"
-                fill="#b6895b"
-                stroke="#b6895b"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <use href="img/feather-sprite.svg#star" />
-              </svg>
-              <svg
-                width="24"
-                height="24"
-                fill="#b6895b"
-                stroke="#b6895b"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <use href="img/feather-sprite.svg#star" />
-              </svg>
-            </div>
-            <div class="product-price">
-              <span x-text="rupiah(item.price)">IDR 12K</span>
-            </div>
-            <a href="#" @click.prevent="$store.cart.add(currentProduct)"
-              ><i data-feather="shopping-cart"></i> <span>+Keranjang</span></a
-            >
-          </div>
-        </div>
+</section>
+<!-- Data olsport selesai -->
+
+
+<!-- footer -->
+<footer class="bg-gray-50">
+  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
+    <div class="sm:flex sm:items-center sm:justify-between">
+      <div class="flex justify-center text-indigo-600 sm:justify-start">
+Olsport_id
       </div>
-     </template> 
-    </div> -->
+
+      <p class="mt-4 text-center text-sm text-gray-500 lg:mt-0 lg:text-right">
+        Copyright &copy; 2020. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+<!-- footer selesai -->
+
+</body>
+</html>
